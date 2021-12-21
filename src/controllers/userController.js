@@ -56,7 +56,7 @@ static async getOneUser(req,res){
 // login function
 
 static async userLogin(req,res){
- const user = await userInfos.findOne({ email:req.body.email});
+ const user = await userInfos.findOne({email:req.body.email});
 
  if(!user){
      return res.status(404).json({ error:"user not found kindly register first"})
