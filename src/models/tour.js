@@ -35,7 +35,7 @@ const tourSchema = new mongoose.Schema(
 tourSchema.pre(/^find/, function (next) {
     this. populate({ 
         path: "user", 
-        select:"lastname email addres"
+        select:"LastName email address"
 });
     next();
 })
