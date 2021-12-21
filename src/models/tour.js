@@ -10,9 +10,9 @@ const tourSchema = new mongoose.Schema(
         dateScheduled: String,
         dueDate: String,
         phone: String,
-        images:[
+        images: [
             {
-                type:String
+                type: String
             }
         ],
         price: String,
@@ -21,11 +21,24 @@ const tourSchema = new mongoose.Schema(
             phone: String
         },
         tripDescription: String,
+        user: {
+            type: mongoose.Schema.ObjectId,
+            ref: "User"
+        }
     },
-{
-    timestamps:true,
-}
-    
-    );
-    const tour = mongoose.model('Tour', tourSchema);
-    export default tour
+    {
+        timestamps: true,
+    }
+
+);
+
+tourSchema.pre(/^find/, function (next) {
+    this. populate({ 
+        path: "user", 
+        select:"LastName email address"
+});
+    next();
+})
+
+const tour = mongoose.model('Tour', tourSchema);
+export default tour

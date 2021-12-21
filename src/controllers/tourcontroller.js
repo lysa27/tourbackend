@@ -1,9 +1,10 @@
 import tourInfos from "../models/tour"
 
 class TourController {
-//  create user in db
+//  create tour in db
 
 static async createTour(req,res){
+    req.body.user= req.user._id;
     const tour = await tourInfos.create(req.body);
 
     if(!tour){

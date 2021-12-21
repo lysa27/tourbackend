@@ -13,6 +13,11 @@ password:{
     type:String,
     required:true,
 },
+role:{
+    type:String,
+    default:"user",
+    enum:["admin","user"]
+},
 address:String,
 gender:{
 type:String,
