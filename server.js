@@ -22,8 +22,9 @@ mongoose.connect(dbUrl,{
     UseUnifiedTopology:true,
     // useFindAndModify:false,
 }).then(()=> console.log("Database connected successfully"))
-app.listen(3030,()=>{
-    console.log(`server is running on Port 3030`);
+const port = process.env.PORT;
+app.listen(port,()=>{
+    console.log(`server is running on Port ${port}`);
 })
 
 
