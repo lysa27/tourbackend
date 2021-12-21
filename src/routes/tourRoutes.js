@@ -1,5 +1,5 @@
 import express from "express";
-import TourController from "../controllers/tourController";
+import TourController from "../controllers/tourcontroller";
 import Validator from "../middlewares/validator";
 import verifyToken from "../middlewares/verifyToken";
 import verifyAccess from "../middlewares/verifyAccess";
