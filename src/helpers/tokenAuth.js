@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-class TokenAuth{
+class TokenAuth {
 
     /**
      * General Token
@@ -13,17 +13,21 @@ class TokenAuth{
      * @return {string} token
      * @class Token TokenAuth
      */
-    static tokenGenerator(data){
-       const token = jwt.sign(data,process.env.JWT_KEY);
+    static tokenGenerator(data) {
+        const token = jwt.sign(data, process.env.JWT_KEY);
 
-       return token;
+        return token;
 
     }
 
 
-    static decodeToken(token){
-        const data =jwt.verify(token,process.env.JWT_KEY);
-        return data;
+    static decodeToken(token) {
+        try {
+            const data = jwt.verify(token, process.env.JWT_KEY);
+            return data;
+        } catch (er) {
+            return er
+        }
     }
 }
 export default TokenAuth;
